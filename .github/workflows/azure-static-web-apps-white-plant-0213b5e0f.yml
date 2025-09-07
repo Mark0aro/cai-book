@@ -23,7 +23,8 @@ jobs:
       - uses: quarto-dev/quarto-actions/setup@v2
 
       # 2) Rakenna kirja -> _book/
-      - run: quarto render
+      - run: quarto render --to html
+
 
       # 3) Deployaa _book/ SWA:han (ohita Oryx-buildi)
       - name: Deploy
@@ -44,3 +45,4 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WHITE_PLANT_0213B5E0F }}
           action: close
+
