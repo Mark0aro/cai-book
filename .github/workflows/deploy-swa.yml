@@ -1,0 +1,17 @@
+name: Deploy CAI book to Azure Static Web Apps
+on:
+  push:
+    branches: [ main ]   # käytä 'master' jos pidät sen haaran
+  workflow_dispatch:
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: quarto-dev/quarto-actions/setup@v2
+      - run: quarto render       # tuottaa _book/
+      - uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          app_location: "_book"  # valmis staattinen sivusto
+          output_location: ""
