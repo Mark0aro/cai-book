@@ -1,0 +1,5 @@
+---
+title: "Introduction"
+---
+
+This technical description summarizes the development plan for the CAI language based on the discussions held so far, including the original vision, GPT-5's assessment, Neura's analysis, and Aatos's comments. CAI is a hypothetical AI-optimized language that uses a graph-based intermediate representation (IR) to convert a specification (spec) into executable code. The plan focuses on the MVP (Minimum Viable Product), emphasizing determinism, security, and efficiency, using Rust as the primary language. The document covers objectives, features, architecture, key components, language choices, MVP phasing, and risks.

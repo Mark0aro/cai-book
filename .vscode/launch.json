@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Quarto: Preview",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "quarto preview",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Quarto: Render (HTML)",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "quarto render",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

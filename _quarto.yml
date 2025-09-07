@@ -1,0 +1,39 @@
+project:
+  type: book
+lang: en
+
+book:
+  title: "CAI: Cognitive AI Language — Technical Description"
+  author: "Marko Arolinna | Helsinki, Finland"
+  version: "0.92"
+  date: today
+  chapters:
+    - index.qmd
+    - Executive-summary.qmd
+    - Introduction.qmd
+    - CAIs-Objectives.qmd
+    - CAIs-High-Level-Features.qmd
+    - Architecture.qmd
+    - Key-Components-and-Proposed-Implementation-Languages.qmd
+    - Language-Choices-Practicalized.qmd
+    - Security-Compliance-and-Audit-Trail.qmd
+    - Testing-and-Reliability.qmd
+    - MVP-Phasing-One-Path.qmd
+    - Risks-and-Countermeasures.qmd
+    - Summary-and-Next-Steps.qmd
+  page-navigation: true
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true
+    number-sections: true   # Quarto hoitaa numeroinnin automaattisesti
+    code-copy: true
+  pdf:
+    number-sections: true
+
+execute:
+  echo: false
+  freeze: auto

@@ -1,0 +1,22 @@
+---
+title: "CAI’s High-Level Features"
+---
+
+- **Graph-first IR.** A declarative, machine-friendly intermediate representation (e.g., JSON graphs) of **nodes**, **edges**, and **operations**, optimized for AI generation and compiler passes.
+
+- **Performance & low-level control.** Native compilation, region-based memory allocators, and tensor computation for predictable latency and high throughput.
+
+- **Concurrency & optimization.** Built-in support for distributed execution, operator fusion, and real-time scheduling with back-pressure awareness.
+
+- **Probabilistic analysis (deterministic runtime by default).** A hybrid model allows probabilistic methods during *analysis/optimization* (e.g., RL-tuned scheduling), while **production execution is deterministic** unless explicitly permitted in the spec via `uncertainty_threshold`.
+
+::: callout-note
+#### Determinism in practice
+By default, the same input yields the same output. Limited non-determinism may be used during analysis (e.g., trying alternative schedulers), but the chosen path is **locked** before production and associated with a **seed** so runs are fully reproducible (*seed & replay*). The `uncertainty_threshold` governs how much variation is allowed at analysis time (e.g., `0.02`); in production it defaults to `0`.
+:::
+
+- **Security & observability.** An explicit **effect system** (IO/DB/NET/GPU/RNG/TIME) with a **capability model** (no ambient authority); **policy-as-code** checks (e.g., OPA) pre-execution. First-class **OpenTelemetry traces**, **Prometheus metrics**, and a **JSONL event log** for auditing and debugging.
+
+- **Interoperability & data formats.** Columnar by default: **Apache Arrow** (in-memory) and **Parquet** (on-disk) for straightforward integration and efficient CPU/GPU vectorization. **TVM lowering** in the MVP; **Airflow** export is planned for a later phase.
+
+- **UI extensibility.** Lightweight **UIHook** metadata in the IR keeps the end-to-end vision visible. The MVP ignores these hints, but a future UI plugin can consume them (e.g., “table view with columns A, B, C”).

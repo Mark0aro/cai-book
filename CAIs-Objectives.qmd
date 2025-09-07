@@ -1,0 +1,8 @@
+---
+title: "CAI’s Objectives"
+---
+
+- Automate software production from spec to a ready app in limited domains.
+- Optimize for AI use: Graph-based structure for parallelism and probabilistic analysis.
+- Ensure reproducibility, security, and scalability in distributed environments.
+- Support the vision of AI agents that generate code efficiently without human-like abstractions.

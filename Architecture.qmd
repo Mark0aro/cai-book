@@ -1,0 +1,10 @@
+---
+title: "Architecture"
+---
+
+CAI = Surface Spec → Contract → CAI-IR → Passes (Validate, Optimize, Schedule) → Lowering → Runtime.
+- **Surface Spec**: Verbal input to the AI agent (e.g., Codex), output Contract (fields: domain, SLOs, effects_allowed, uncertainty_threshold, capabilities, replay_seed, cost_ceiling).
+- **CAI-IR**: Core structure with types (tensor, stream, table, arrow_batch), effect-set (IO, Net, GPU, DB, RNG, Time) and metadata (placement, cost).
+- **Passes**: Validate (type/effect-check + OPA-lint), Optimize (DCE, fuse), Schedule (cost heuristic + work-stealing).
+- **Lowering**: To TVM/Triton GPU/CPU cores; Arrow→tensor conversions. Interop limitations. In the MVP, we focus on TVM-based lowering for both CPU and GPU cores. Other exports, such as Airflow-DAG, belong to the first extension wave to keep development focused.
+- **Runtime**: Actor-based DAG driver, seed-replay, DOT/Graphviz debugger; observability (OTLP, Prometheus, JSON-log).
